@@ -20,6 +20,7 @@ public class SigilConnectSFX : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         defaultPitch = audioSource.pitch - pitchIncrease;
         audioSource.pitch = defaultPitch;
+        audioSource.clip = audioClip;
     }
 
     public void playSFX(){

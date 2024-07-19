@@ -80,7 +80,8 @@ public class SpellCastingManager : MonoBehaviour
                     }
                 }
                 if(isCorrectSigils){
-                    castedSpell = storedSpell.spells;
+                    // castedSpell = storedSpell.spells;
+                    Debug.Log("Success cast : "+storedSpell.spells.name);
                     isCooked = true;
                     sigilLocked = true;
                 }

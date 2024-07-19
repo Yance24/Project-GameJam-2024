@@ -376,7 +376,6 @@ GameObject:
   m_Component:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
-  - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
@@ -385,14 +384,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &519420029
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
 --- !u!114 &519420030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -597,6 +588,7 @@ GameObject:
   - component: {fileID: 680645800}
   - component: {fileID: 680645799}
   - component: {fileID: 680645798}
+  - component: {fileID: 680645802}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -687,6 +679,14 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!81 &680645802
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680645797}
+  m_Enabled: 1
 --- !u!1 &687250183
 GameObject:
   m_ObjectHideFlags: 0
@@ -3388,8 +3388,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1428759357}
   - component: {fileID: 1428759358}
-  - component: {fileID: 1428759359}
+  - component: {fileID: 1428759361}
   - component: {fileID: 1428759360}
+  - component: {fileID: 1428759359}
   m_Layer: 5
   m_Name: SpellCastingUI
   m_TagString: Untagged
@@ -3458,12 +3459,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 1428759356}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49c46424f395044428763ca2f5c5553c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storedSpells:
+  - spells: {fileID: 492582871618091118, guid: 6d76f048abf39834384a0b79a3d3b321, type: 3}
+    connectingSigils:
+    - {fileID: 4259901361160469665, guid: 3e406acbd565df644a1d5ea9e77289aa, type: 3}
+    - {fileID: 4259901361160469665, guid: b5bb13cab5b4fa2468c00b5e523081a7, type: 3}
+    - {fileID: 4259901361160469665, guid: 8108b576b80ec344fbb9bad64eaf89fc, type: 3}
+--- !u!114 &1428759360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428759356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d90b34113b61b42428a90a442b87c4ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: e846902e389e5cc4aaef3ac09d43b705, type: 3}
-  pitchIncrease: 1
---- !u!82 &1428759360
+  pitchIncrease: 0.2
+--- !u!82 &1428759361
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
