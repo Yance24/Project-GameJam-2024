@@ -61,6 +61,10 @@ public class SpellCastingManager : MonoBehaviour
         }
     }
 
+    public void addConnectedSigils(GameObject gameObject){
+        connectedSigils.Add(gameObject);
+    }
+
     void despawnSigils(){
         sigilLocked = true;
         for(int i = 0; i < spawnedSigils.Count; i++){
@@ -68,6 +72,7 @@ public class SpellCastingManager : MonoBehaviour
             Destroy(spawnedSigils[i],0.5f);
         }
         spawnedSigils = new List<GameObject>();
+        connectedSigils = new List<GameObject>();
         Invoke("reloadSigils",0.5f);
     }
 
