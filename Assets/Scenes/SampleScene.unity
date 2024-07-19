@@ -246,7 +246,7 @@ GameObject:
   - component: {fileID: 513620767}
   m_Layer: 0
   m_Name: EnemyDummy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1228,11 +1228,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sigilsObjects:
-  - {fileID: 4259901361160469665, guid: 601155957b5a7cc4a92d1781fc03a0c4, type: 3}
-  - {fileID: 4259901361160469665, guid: 601155957b5a7cc4a92d1781fc03a0c4, type: 3}
-  - {fileID: 4259901361160469665, guid: 601155957b5a7cc4a92d1781fc03a0c4, type: 3}
-  - {fileID: 4259901361160469665, guid: 601155957b5a7cc4a92d1781fc03a0c4, type: 3}
-  - {fileID: 4259901361160469665, guid: 601155957b5a7cc4a92d1781fc03a0c4, type: 3}
+  - {fileID: 4259901361160469665, guid: b5bb13cab5b4fa2468c00b5e523081a7, type: 3}
+  - {fileID: 4259901361160469665, guid: 3f7eebd1df435d24caac4e152379b36f, type: 3}
+  - {fileID: 4259901361160469665, guid: 8108b576b80ec344fbb9bad64eaf89fc, type: 3}
+  - {fileID: 4259901361160469665, guid: 3e406acbd565df644a1d5ea9e77289aa, type: 3}
+  - {fileID: 4259901361160469665, guid: d7be586647fb3834ba7b6082b12ee010, type: 3}
   sigilPositions:
   - {fileID: 1252854724}
   - {fileID: 1876196189}
@@ -1254,7 +1254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   storedSpells:
-  - spells: {fileID: 0}
+  - spells: {fileID: 492582871618091118, guid: 6d76f048abf39834384a0b79a3d3b321, type: 3}
     connectingSigils: []
 --- !u!1 &1864769358
 GameObject:
@@ -1621,7 +1621,7 @@ GameObject:
   - component: {fileID: 2102171213}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
