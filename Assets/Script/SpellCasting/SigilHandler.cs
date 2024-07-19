@@ -29,6 +29,7 @@ public class SigilHandler : MonoBehaviour, IPointerEnterHandler
             isConnected = true;
             image.material = litSigil;
             SigilConnectSFX.instance.playSFX();
+            SpellCastingManager.instance.addConnectedSigils(gameObject);
         }
     }
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using UnityEditor;
 using UnityEngine;
 
 public class SpellCastingManager : MonoBehaviour
@@ -10,10 +11,13 @@ public class SpellCastingManager : MonoBehaviour
     public List<GameObject> sigilsObjects;
     public List<RectTransform> sigilPositions;
     public RectTransform sigilSpawn;
+    public AudioClip spawnSigilSFX;
+    public AudioClip despawnSigilSFX;
+
+    private AudioSource audioSource;
 
     private List<GameObject> spawnedSigils = new List<GameObject>();
     private List<GameObject> connectedSigils = new List<GameObject>();
-    
     private GameObject castedSpell;
 
     bool sigilSpawned = false;
@@ -28,6 +32,10 @@ public class SpellCastingManager : MonoBehaviour
     void Awake(){
         if(!instance) instance = this;
         else Destroy(this);
+    }
+
+    void Start(){
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update(){
@@ -56,6 +64,9 @@ public class SpellCastingManager : MonoBehaviour
     // }
 
     void spawnSigils(){
+        audioSource.clip = spawnSigilSFX;
+        audioSource.Play();
+
         for(int i = 0; i < sigilsObjects.Count; i++){
             spawnedSigils.Add(Instantiate(sigilsObjects[i],transform));
             spawnedSigils[i].GetComponent<RectTransform>().position = sigilSpawn.position;
@@ -74,7 +85,9 @@ public class SpellCastingManager : MonoBehaviour
             if(connectedSigils.Count == storedSpell.connectingSigils.Count){
                 bool isCorrectSigils = true;
                 for(int i = 0; i < connectedSigils.Count; i++){
-                    if(!ReferenceEquals(connectedSigils[i],storedSpell.connectingSigils[i])){
+                    if(PrefabUtility.GetCorrespondingObjectFromSource(connectedSigils[i]) == storedSpell.connectingSigils[i]){
+                        Debug.Log("Connected Sigils : "+connectedSigils[i]);
+                        Debug.Log("Connecting Sigils : "+storedSpell.connectingSigils[i]);
                         isCorrectSigils = false;
                         break;
                     }
@@ -95,6 +108,9 @@ public class SpellCastingManager : MonoBehaviour
             spawnedSigils[i].GetComponent<MoveUIToTarget>().setTarget(sigilSpawn.anchoredPosition);
             Destroy(spawnedSigils[i],0.4f);
         }
+        audioSource.clip = despawnSigilSFX;
+        audioSource.Play();
+
         spawnedSigils = new List<GameObject>();
         connectedSigils = new List<GameObject>();
         Invoke("reloadSigils",0.4f);
