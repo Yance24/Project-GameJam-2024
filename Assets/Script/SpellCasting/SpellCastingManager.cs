@@ -13,6 +13,7 @@ public class SpellCastingManager : MonoBehaviour
 
     private List<GameObject> spawnedSigils = new List<GameObject>();
     private List<GameObject> connectedSigils = new List<GameObject>();
+    
 
 
     bool sigilSpawned = false;
@@ -63,6 +64,25 @@ public class SpellCastingManager : MonoBehaviour
 
     public void addConnectedSigils(GameObject gameObject){
         connectedSigils.Add(gameObject);
+        checkedCastedSpell();
+    }
+
+    void checkedCastedSpell(){
+        
+        foreach(SpellRecipe storedSpell in SpellDatabase.instance.storedSpells){
+            if(connectedSigils.Count == storedSpell.connectingSigils.Count){
+                bool isCorrectSigils = true;
+                for(int i = 0; i < connectedSigils.Count; i++){
+                    if(!ReferenceEquals(connectedSigils[i],storedSpell.connectingSigils[i])){
+                        isCorrectSigils = false;
+                        break;
+                    }
+                }
+                if(isCorrectSigils){
+                    
+                }
+            }
+        }
     }
 
     void despawnSigils(){
