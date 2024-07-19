@@ -12,8 +12,13 @@ public class SpellCastingManager : MonoBehaviour
     public RectTransform sigilSpawn;
 
     private List<GameObject> spawnedSigils = new List<GameObject>();
+    private List<GameObject> connectedSigils = new List<GameObject>();
+
+
     bool sigilSpawned = false;
     public bool sigilLocked = false;
+
+
 
     [DllImport("user32.dll")]
     private static extern bool SetCursorPos(int X, int Y);
