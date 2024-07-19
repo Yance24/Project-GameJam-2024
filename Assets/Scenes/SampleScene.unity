@@ -1255,7 +1255,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storedSpells:
   - spells: {fileID: 492582871618091118, guid: 6d76f048abf39834384a0b79a3d3b321, type: 3}
-    connectingSigils: []
+    connectingSigils:
+    - {fileID: 4259901361160469665, guid: 3e406acbd565df644a1d5ea9e77289aa, type: 3}
+    - {fileID: 4259901361160469665, guid: b5bb13cab5b4fa2468c00b5e523081a7, type: 3}
+    - {fileID: 4259901361160469665, guid: 8108b576b80ec344fbb9bad64eaf89fc, type: 3}
 --- !u!1 &1864769358
 GameObject:
   m_ObjectHideFlags: 0
