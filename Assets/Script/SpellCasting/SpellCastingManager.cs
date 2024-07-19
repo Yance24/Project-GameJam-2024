@@ -102,5 +102,6 @@ public class SpellCastingManager : MonoBehaviour
     void reloadSigils(){
         sigilSpawned = false;
         sigilLocked = false;
+        SigilConnectSFX.instance.resetPitch();
     }
 }

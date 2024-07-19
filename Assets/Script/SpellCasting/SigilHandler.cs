@@ -28,7 +28,7 @@ public class SigilHandler : MonoBehaviour, IPointerEnterHandler
             //sigil connected
             isConnected = true;
             image.material = litSigil;
-            
+            SigilConnectSFX.instance.playSFX();
         }
     }
 
