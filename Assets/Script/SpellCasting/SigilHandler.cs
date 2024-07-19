@@ -19,7 +19,7 @@ public class SigilHandler : MonoBehaviour, IPointerEnterHandler
     {
         if(!isConnected && isReady && !SpellCastingManager.instance.sigilLocked){
             isConnected = true;
-            Debug.Log("connect!");
+            
         }
     }
 
