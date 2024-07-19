@@ -25,8 +25,10 @@ public class SigilHandler : MonoBehaviour, IPointerEnterHandler
     public void OnPointerEnter(PointerEventData eventData)
     {
         if(!isConnected && isReady && !SpellCastingManager.instance.sigilLocked){
+            //sigil connected
             isConnected = true;
             image.material = litSigil;
+            
         }
     }
 

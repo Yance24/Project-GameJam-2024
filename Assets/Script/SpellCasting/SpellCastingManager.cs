@@ -14,9 +14,10 @@ public class SpellCastingManager : MonoBehaviour
     private List<GameObject> spawnedSigils = new List<GameObject>();
     private List<GameObject> connectedSigils = new List<GameObject>();
     
-
+    private GameObject castedSpell;
 
     bool sigilSpawned = false;
+    public bool isCooked = false;
     public bool sigilLocked = false;
 
 
@@ -79,7 +80,9 @@ public class SpellCastingManager : MonoBehaviour
                     }
                 }
                 if(isCorrectSigils){
-                    
+                    castedSpell = storedSpell.spells;
+                    isCooked = true;
+                    sigilLocked = true;
                 }
             }
         }
@@ -89,11 +92,11 @@ public class SpellCastingManager : MonoBehaviour
         sigilLocked = true;
         for(int i = 0; i < spawnedSigils.Count; i++){
             spawnedSigils[i].GetComponent<MoveUIToTarget>().setTarget(sigilSpawn.anchoredPosition);
-            Destroy(spawnedSigils[i],0.5f);
+            Destroy(spawnedSigils[i],0.4f);
         }
         spawnedSigils = new List<GameObject>();
         connectedSigils = new List<GameObject>();
-        Invoke("reloadSigils",0.5f);
+        Invoke("reloadSigils",0.4f);
     }
 
     void reloadSigils(){
