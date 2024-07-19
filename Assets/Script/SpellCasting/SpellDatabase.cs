@@ -11,6 +11,12 @@ public class SpellRecipe{
 
 public class SpellDatabase : MonoBehaviour
 {
+    public static SpellDatabase instance{private set; get;}
     [SerializeField]
     public List<SpellRecipe> storedSpells;
+
+    void Start(){
+        if(!instance) instance = this;
+        else Destroy(this);
+    }
 }

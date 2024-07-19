@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc3f6095ce636784e8071c764c04f578, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  litSigil: {fileID: 2100000, guid: 63a333c004417c54588a12a99dad771e, type: 2}
   isConnected: 0
 --- !u!61 &724627454904563101
 BoxCollider2D:
