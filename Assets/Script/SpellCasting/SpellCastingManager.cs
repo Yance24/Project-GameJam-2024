@@ -5,20 +5,27 @@ using UnityEngine;
 
 public class SpellCastingManager : MonoBehaviour
 {
+    public static SpellCastingManager instance{private set; get;}
+
     public List<GameObject> sigilsObjects;
     public List<RectTransform> sigilPositions;
     public RectTransform sigilSpawn;
 
     private List<GameObject> spawnedSigils = new List<GameObject>();
     bool sigilSpawned = false;
+    public bool sigilLocked = false;
 
     [DllImport("user32.dll")]
     private static extern bool SetCursorPos(int X, int Y);
 
+    void Awake(){
+        if(!instance) instance = this;
+        else Destroy(this);
+    }
+
     void Update(){
         if(Input.GetMouseButtonDown(0) && !sigilSpawned){
             //spawn sigil
-            // Debug.Log("sigil spawned!");
             sigilSpawned = true;
             // MoveCursor();
             spawnSigils();
@@ -27,7 +34,7 @@ public class SpellCastingManager : MonoBehaviour
         if(Input.GetMouseButtonUp(0) && sigilSpawned){
             //despawn sigil
             // Debug.Log("sigil despawned!");
-            sigilSpawned = false;
+            despawnSigils();
         }
     }
 
@@ -47,5 +54,20 @@ public class SpellCastingManager : MonoBehaviour
             spawnedSigils[i].GetComponent<RectTransform>().position = sigilSpawn.position;
             spawnedSigils[i].GetComponent<MoveUIToTarget>().setTarget(sigilPositions[i].anchoredPosition);
         }
+    }
+
+    void despawnSigils(){
+        sigilLocked = true;
+        for(int i = 0; i < spawnedSigils.Count; i++){
+            spawnedSigils[i].GetComponent<MoveUIToTarget>().setTarget(sigilSpawn.anchoredPosition);
+            Destroy(spawnedSigils[i],0.5f);
+        }
+        spawnedSigils = new List<GameObject>();
+        Invoke("reloadSigils",0.5f);
+    }
+
+    void reloadSigils(){
+        sigilSpawned = false;
+        sigilLocked = false;
     }
 }

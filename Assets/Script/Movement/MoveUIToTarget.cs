@@ -10,6 +10,7 @@ public class MoveUIToTarget : BaseObjectMovement
 
     public void setTarget(Vector2 target){
         this.targetPosition = target;
+        executeMovement();
         isReached = false;
     }
 
@@ -29,6 +30,7 @@ public class MoveUIToTarget : BaseObjectMovement
             {
                 sourceUI.anchoredPosition = targetPosition;
                 isReached = true;
+                stopMovement();
             }
         }
     }

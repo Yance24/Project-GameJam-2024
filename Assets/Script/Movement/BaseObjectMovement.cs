@@ -5,23 +5,26 @@ using UnityEngine;
 public class BaseObjectMovement : MonoBehaviour
 {
     protected Rigidbody2D rigidbody2d;
+    protected Animator animator;
 
-    private const string isMoveParameterName = "";
+    private const string isMoveParameterName = "isMoving";
 
     public bool isMoving = false;
 
     void Start(){
         // init animation controller;
         rigidbody2d = GetComponent<Rigidbody2D>();
+
     }
     
     protected virtual void executeMovement(){
         isMoving = true;
-        //set animation parameter;
+        if(animator) animator.SetBool(isMoveParameterName,isMoving);
+        
     }
 
     protected virtual void stopMovement(){
         isMoving = false;
-        //set animation parameter;
+        if(animator) animator.SetBool(isMoveParameterName,isMoving);
     }
 }
