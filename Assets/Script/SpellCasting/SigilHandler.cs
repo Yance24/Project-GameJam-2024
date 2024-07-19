@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class SigilHandler : MonoBehaviour, IPointerEnterHandler
 {
     public Material litSigil;
+    public int id;
     private Material defaultSigil;
     private Image image;
     public bool isConnected = false;
@@ -29,7 +30,7 @@ public class SigilHandler : MonoBehaviour, IPointerEnterHandler
             isConnected = true;
             image.material = litSigil;
             SigilConnectSFX.instance.playSFX();
-            SpellCastingManager.instance.addConnectedSigils(gameObject);
+            SpellCastingManager.instance.addConnectedSigils(id);
         }
     }
 

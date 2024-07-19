@@ -17,7 +17,7 @@ public class SpellCastingManager : MonoBehaviour
     private AudioSource audioSource;
 
     private List<GameObject> spawnedSigils = new List<GameObject>();
-    private List<GameObject> connectedSigils = new List<GameObject>();
+    private List<int> connectedSigilsID = new List<int>();
     private GameObject castedSpell;
 
     bool sigilSpawned = false;
@@ -74,20 +74,20 @@ public class SpellCastingManager : MonoBehaviour
         }
     }
 
-    public void addConnectedSigils(GameObject gameObject){
-        connectedSigils.Add(gameObject);
+    public void addConnectedSigils(int id){
+        connectedSigilsID.Add(id);
         checkedCastedSpell();
     }
 
     void checkedCastedSpell(){
         
         foreach(SpellRecipe storedSpell in SpellDatabase.instance.storedSpells){
-            if(connectedSigils.Count == storedSpell.connectingSigils.Count){
+            if(connectedSigilsID.Count == storedSpell.connectingSigilsID.Count){
                 bool isCorrectSigils = true;
-                for(int i = 0; i < connectedSigils.Count; i++){
-                    if(PrefabUtility.GetCorrespondingObjectFromSource(connectedSigils[i]) == storedSpell.connectingSigils[i]){
-                        Debug.Log("Connected Sigils : "+connectedSigils[i]);
-                        Debug.Log("Connecting Sigils : "+storedSpell.connectingSigils[i]);
+                for(int i = 0; i < connectedSigilsID.Count; i++){
+                    if(connectedSigilsID[i] != storedSpell.connectingSigilsID[i]){
+                        Debug.Log("Connected Sigils : "+connectedSigilsID[i]);
+                        Debug.Log("Connecting Sigils : "+storedSpell.connectingSigilsID[i]);
                         isCorrectSigils = false;
                         break;
                     }
@@ -112,7 +112,7 @@ public class SpellCastingManager : MonoBehaviour
         audioSource.Play();
 
         spawnedSigils = new List<GameObject>();
-        connectedSigils = new List<GameObject>();
+        connectedSigilsID = new List<int>();
         Invoke("reloadSigils",0.4f);
     }
 

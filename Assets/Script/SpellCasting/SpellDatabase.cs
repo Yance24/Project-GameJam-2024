@@ -6,7 +6,7 @@ using UnityEngine;
 [Serializable]
 public class SpellRecipe{
     public GameObject spells;
-    public List<GameObject> connectingSigils;
+    public List<int> connectingSigilsID;
 }
 
 public class SpellDatabase : MonoBehaviour

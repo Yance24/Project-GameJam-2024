@@ -188,6 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   litSigil: {fileID: 2100000, guid: 63a333c004417c54588a12a99dad771e, type: 2}
+  id: 3
   isConnected: 0
 --- !u!61 &724627454904563101
 BoxCollider2D:
