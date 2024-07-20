@@ -8,6 +8,7 @@ public class SpellCastingManager : MonoBehaviour
 {
     public static SpellCastingManager instance{private set; get;}
 
+    public Transform player;
     public List<GameObject> sigilsObjects;
     public List<RectTransform> sigilPositions;
     public RectTransform sigilSpawn;
@@ -86,15 +87,14 @@ public class SpellCastingManager : MonoBehaviour
                 bool isCorrectSigils = true;
                 for(int i = 0; i < connectedSigilsID.Count; i++){
                     if(connectedSigilsID[i] != storedSpell.connectingSigilsID[i]){
-                        Debug.Log("Connected Sigils : "+connectedSigilsID[i]);
-                        Debug.Log("Connecting Sigils : "+storedSpell.connectingSigilsID[i]);
+                        // Debug.Log("Connected Sigils : "+connectedSigilsID[i]);
+                        // Debug.Log("Connecting Sigils : "+storedSpell.connectingSigilsID[i]);
                         isCorrectSigils = false;
                         break;
                     }
                 }
                 if(isCorrectSigils){
-                    // castedSpell = storedSpell.spells;
-                    Debug.Log("Success cast : "+storedSpell.spells.name);
+                    castedSpell = storedSpell.spells;
                     isCooked = true;
                     sigilLocked = true;
                 }
@@ -120,5 +120,18 @@ public class SpellCastingManager : MonoBehaviour
         sigilSpawned = false;
         sigilLocked = false;
         SigilConnectSFX.instance.resetPitch();
+        if(isCooked){
+            castSpell();
+            isCooked = false;
+        }
+        
+    }
+
+    void castSpell(){
+        castedSpell = Instantiate(castedSpell);
+        castedSpell.transform.position = player.position;
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0;
+        castedSpell.GetComponent<Rigidbody2D>().rotation = YEuler.countAngle(player.position,mousePosition);
     }
 }

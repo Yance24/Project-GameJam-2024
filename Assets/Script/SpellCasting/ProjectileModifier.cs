@@ -12,18 +12,24 @@ public class ProjectileModifier : MonoBehaviour
 
     private bool isLaunched = false;
 
-    public void launch(){
+    // public void launch(){
+    //     rigidbody2d = GetComponent<Rigidbody2D>();
+    //     isLaunched = rigidbody2d;
+    // }
+
+    void Start(){
         rigidbody2d = GetComponent<Rigidbody2D>();
         isLaunched = rigidbody2d;
     }
 
     void FixedUpdate(){
-        rigidbody2d.velocity = Vector2.up * speed; 
+        rigidbody2d.velocity = transform.right * speed; 
     }
 
     void OnTriggerEnter2D(Collider2D collider){
         if((collider.CompareTag("Player") && isHarm) || (collider.CompareTag("Enemy") && !isHarm)){
             collider.GetComponent<HpStats>().hp -= damage;
+            Destroy(gameObject);
         }
     }
 }
