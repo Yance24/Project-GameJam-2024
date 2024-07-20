@@ -102,6 +102,9 @@ MonoBehaviour:
   speed: 7
   damage: 20
   isHarm: 0
+  maxLifeSpan: 5
+  afterImpact: {fileID: 8779426810970242096, guid: 309208e1aecf2194fb60c9e4ec1abee1, type: 3}
+  afterImpactLifeSpan: 1
 --- !u!50 &-7400844237041361738
 Rigidbody2D:
   serializedVersion: 4
