@@ -55,7 +55,6 @@ public class SpellCastingManager : MonoBehaviour
 
         if(Input.GetMouseButtonUp(0) && sigilSpawned){
             //despawn sigil
-            // Debug.Log("sigil despawned!");
             despawnSigils();
         }
 
@@ -70,8 +69,7 @@ public class SpellCastingManager : MonoBehaviour
     // {
         
     //     Vector2 screenPosition;
-    //     screenPosition.x = Screen.width/2;
-    //     screenPosition.y = Screen.height/2;
+    //     screenPosition = Camera.main.WorldToScreenPoint(player.position);
     //     Debug.Log(screenPosition);
     //     SetCursorPos((int)screenPosition.x, (int)screenPosition.y);
     // }
