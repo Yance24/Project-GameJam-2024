@@ -8,7 +8,9 @@ public class ProjectileModifier : MonoBehaviour
     public float speed;
     public float damage;
     public bool isHarm;
+    public Element element;
     public float maxLifeSpan;
+    public bool destroyOnImpact;
     public GameObject afterImpact;
     public float afterImpactLifeSpan;
 
@@ -28,16 +30,25 @@ public class ProjectileModifier : MonoBehaviour
     }
 
     void FixedUpdate(){
-        rigidbody2d.velocity = transform.right * speed;
+        if(rigidbody2d){
+            rigidbody2d.velocity = transform.right * speed;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collider){
         if((collider.CompareTag("Player") && isHarm) || (collider.CompareTag("Enemy") && !isHarm)){
-            collider.GetComponent<HpStats>().hp -= damage;
-            GameObject afterI = Instantiate(afterImpact);
-            afterI.transform.position = transform.position;
-            Destroy(afterI,afterImpactLifeSpan);
-            Destroy(gameObject);
+            HpStats hpStats = collider.GetComponent<HpStats>();
+            Debug.Log("check Damage");
+            if(hpStats.elementWeakness == element){
+                Debug.Log("Take Damage");
+                hpStats.CurrentHp -= damage;
+            }
+            if(afterImpact){
+                GameObject afterI = Instantiate(afterImpact);
+                afterI.transform.position = transform.position;
+                Destroy(afterI,afterImpactLifeSpan);
+            }
+            if(destroyOnImpact) Destroy(gameObject);
         }
     }
 }

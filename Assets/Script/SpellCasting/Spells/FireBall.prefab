@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2646886935224570581}
   - component: {fileID: 7395529011085912723}
   - component: {fileID: -7400844237041361738}
-  - component: {fileID: 3994023290796162306}
+  - component: {fileID: 6807231312772475215}
   m_Layer: 0
   m_Name: FireBall
   m_TagString: Untagged
@@ -101,9 +101,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
-  damage: 20
+  damage: 0
   isHarm: 0
+  element: 3
   maxLifeSpan: 5
+  destroyOnImpact: 1
   afterImpact: {fileID: 8779426810970242096, guid: 309208e1aecf2194fb60c9e4ec1abee1, type: 3}
   afterImpactLifeSpan: 0.5
 --- !u!50 &-7400844237041361738
@@ -133,8 +135,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &3994023290796162306
-CircleCollider2D:
+--- !u!70 &6807231312772475215
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -165,9 +167,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.3
+  m_Offset: {x: 0.06, y: 0}
+  m_Size: {x: 0.22, y: 0.32}
+  m_Direction: 0
 --- !u!1 &6606012511622316610
 GameObject:
   m_ObjectHideFlags: 0
