@@ -12,4 +12,8 @@ public class MouseUtil : MonoBehaviour
         }
         else return new Vector2();
     }
+
+    public static Vector2 mousePositionToWorld(){
+        return Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
 }
