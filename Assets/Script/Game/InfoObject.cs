@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class InfoObject : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float distance;
+    public GameObject infoObj;
+    Transform player;
+
+    bool isSpawned = false;
+
     void Start()
     {
-        
+        player = GameObject.FindWithTag("Player").transform;
+        infoObj.SetActive(false);
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        if(!isSpawned && Vector2.Distance(player.position,transform.position) <= distance){
+            isSpawned = true;
+            infoObj.SetActive(true);
+        }
+
+        if(isSpawned && Vector2.Distance(player.position,transform.position) > distance){
+            isSpawned = false;
+            infoObj.SetActive(false);
+        }
     }
 }
