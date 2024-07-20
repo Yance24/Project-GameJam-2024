@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using System.Threading;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpellCastingManager : MonoBehaviour
 {
@@ -14,11 +16,15 @@ public class SpellCastingManager : MonoBehaviour
     public RectTransform sigilSpawn;
     public AudioClip spawnSigilSFX;
     public AudioClip despawnSigilSFX;
+    public Image lineImage;
 
     private AudioSource audioSource;
 
     private List<GameObject> spawnedSigils = new List<GameObject>();
-    private List<int> connectedSigilsID = new List<int>();
+    private List<SigilHandler> connectedSigilsID = new List<SigilHandler>();
+    private List<Image> instantiatedLine = new List<Image>();
+
+
     private GameObject castedSpell;
 
     bool sigilSpawned = false;
@@ -52,6 +58,12 @@ public class SpellCastingManager : MonoBehaviour
             // Debug.Log("sigil despawned!");
             despawnSigils();
         }
+
+        if(connectedSigilsID.Count > 0 && !isCooked){
+            LineDrawer.drawUiLine(connectedSigilsID[connectedSigilsID.Count - 1].rectTransform().localPosition,
+            MouseUtil.mousePositionToRect(sigilSpawn),
+            instantiatedLine[instantiatedLine.Count - 1]);
+        }
     }
 
     // void MoveCursor()
@@ -75,9 +87,23 @@ public class SpellCastingManager : MonoBehaviour
         }
     }
 
-    public void addConnectedSigils(int id){
-        connectedSigilsID.Add(id);
+    public void addConnectedSigils(SigilHandler sigil){
+        connectedSigilsID.Add(sigil);
+
+        if(connectedSigilsID.Count > 1){
+            LineDrawer.drawUiLine(connectedSigilsID[connectedSigilsID.Count - 2].rectTransform().localPosition,
+            connectedSigilsID[connectedSigilsID.Count - 1].rectTransform().localPosition,
+            instantiatedLine[instantiatedLine.Count - 1]);
+        }
+
         checkedCastedSpell();
+
+        if(isCooked) return;
+
+        instantiatedLine.Add(Instantiate(lineImage.gameObject,transform).GetComponent<Image>());
+        LineDrawer.drawUiLine(sigil.rectTransform().localPosition,
+        MouseUtil.mousePositionToRect(sigilSpawn),
+        instantiatedLine[instantiatedLine.Count - 1]);
     }
 
     void checkedCastedSpell(){
@@ -86,7 +112,7 @@ public class SpellCastingManager : MonoBehaviour
             if(connectedSigilsID.Count == storedSpell.connectingSigilsID.Count){
                 bool isCorrectSigils = true;
                 for(int i = 0; i < connectedSigilsID.Count; i++){
-                    if(connectedSigilsID[i] != storedSpell.connectingSigilsID[i]){
+                    if(connectedSigilsID[i].id != storedSpell.connectingSigilsID[i].id){
                         // Debug.Log("Connected Sigils : "+connectedSigilsID[i]);
                         // Debug.Log("Connecting Sigils : "+storedSpell.connectingSigilsID[i]);
                         isCorrectSigils = false;
@@ -110,9 +136,13 @@ public class SpellCastingManager : MonoBehaviour
         }
         audioSource.clip = despawnSigilSFX;
         audioSource.Play();
+        for(int i = 0; i < instantiatedLine.Count; i++){
+            Destroy(instantiatedLine[i]);
+        }
 
         spawnedSigils = new List<GameObject>();
-        connectedSigilsID = new List<int>();
+        connectedSigilsID = new List<SigilHandler>();
+        instantiatedLine = new List<Image>();
         Invoke("reloadSigils",0.4f);
     }
 
@@ -132,6 +162,6 @@ public class SpellCastingManager : MonoBehaviour
         castedSpell.transform.position = player.position;
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0;
-        castedSpell.GetComponent<Rigidbody2D>().rotation = YEuler.countAngle(player.position,mousePosition);
+        castedSpell.GetComponent<Rigidbody2D>().rotation    = YEuler.countAngle(player.position,mousePosition);
     }
 }

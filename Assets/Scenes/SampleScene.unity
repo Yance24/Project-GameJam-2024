@@ -3150,6 +3150,95 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1126628901
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1126628902}
+  - component: {fileID: 1126628905}
+  - component: {fileID: 1126628904}
+  - component: {fileID: 1126628903}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1126628902
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126628901}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1428759357}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -167.66003, y: 21.350037}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1126628903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126628901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c124a71a592eca649aaf4964a0969401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  referencePoint: {fileID: 1357984266}
+--- !u!114 &1126628904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126628901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1126628905
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126628901}
+  m_CullTransparentMesh: 1
 --- !u!1 &1137102584
 GameObject:
   m_ObjectHideFlags: 0
@@ -3565,11 +3654,12 @@ RectTransform:
   - {fileID: 330383082}
   - {fileID: 894570965}
   - {fileID: 1964666618}
+  - {fileID: 1126628902}
   m_Father: {fileID: 680645801}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 683, y: -384}
   m_SizeDelta: {x: 1366, y: 594}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1428759358
@@ -3600,6 +3690,7 @@ MonoBehaviour:
   sigilSpawn: {fileID: 1357984266}
   spawnSigilSFX: {fileID: 8300000, guid: 8dc21759cc716034a9ec866d94c5550e, type: 3}
   despawnSigilSFX: {fileID: 8300000, guid: e7f1da818effdd849acd2459c1393461, type: 3}
+  lineImage: {fileID: 7648425072121321362, guid: ac0bf88a35dd11547b20634fdfa23451, type: 3}
   isCooked: 0
   sigilLocked: 0
 --- !u!114 &1428759359
@@ -3616,7 +3707,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storedSpells:
   - spells: {fileID: 492582871618091118, guid: 6d76f048abf39834384a0b79a3d3b321, type: 3}
-    connectingSigilsID: 040000000100000003000000
+    connectingSigilsID:
+    - {fileID: -9139964794716573971, guid: 3e406acbd565df644a1d5ea9e77289aa, type: 3}
+    - {fileID: -9139964794716573971, guid: b5bb13cab5b4fa2468c00b5e523081a7, type: 3}
+    - {fileID: -9139964794716573971, guid: 8108b576b80ec344fbb9bad64eaf89fc, type: 3}
 --- !u!82 &1428759361
 AudioSource:
   m_ObjectHideFlags: 0

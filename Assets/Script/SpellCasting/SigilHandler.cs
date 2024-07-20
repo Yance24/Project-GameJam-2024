@@ -23,6 +23,10 @@ public class SigilHandler : MonoBehaviour, IPointerEnterHandler
         Invoke("readyHitbox",0.15f);
     }
 
+    public RectTransform rectTransform(){
+        return GetComponent<RectTransform>();
+    }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         if(!isConnected && isReady && !SpellCastingManager.instance.sigilLocked){
@@ -30,7 +34,7 @@ public class SigilHandler : MonoBehaviour, IPointerEnterHandler
             isConnected = true;
             image.material = litSigil;
             SigilConnectSFX.instance.playSFX();
-            SpellCastingManager.instance.addConnectedSigils(id);
+            SpellCastingManager.instance.addConnectedSigils(this);
         }
     }
 
