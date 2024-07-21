@@ -50,7 +50,7 @@ GameObject:
   - component: {fileID: 4819525291694487118}
   - component: {fileID: -1798567848448767290}
   m_Layer: 0
-  m_Name: Enemy-Slim-2
+  m_Name: Enemy-Slime
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

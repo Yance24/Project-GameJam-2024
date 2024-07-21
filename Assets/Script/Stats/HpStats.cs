@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -45,7 +46,13 @@ public class HpStats : MonoBehaviour
             hpChanged?.Invoke();
             if(Mathf.Floor(currentHp) <= 0){
                 // Debug.Log("dead");
-                if(gameObject.tag == "Enemy") EnemyAI.TotalEnemyAggro--;
+                if(gameObject.tag == "Enemy" || gameObject.tag == "Boss"){
+                    EnemyAI enemyAI = GetComponent<EnemyAI>();
+                    if(enemyAI && enemyAI.isAggro){
+                        EnemyAI.TotalEnemyAggro--;
+                    }
+                }
+                
                 
                 if(deadEvent) {
                     deadEvent.execute();
