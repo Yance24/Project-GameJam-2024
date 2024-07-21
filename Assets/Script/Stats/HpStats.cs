@@ -34,6 +34,8 @@ public class HpStats : MonoBehaviour
             // Debug.Log(value);
             if(Mathf.Floor(currentHp) <= 0){
                 // Debug.Log("dead");
+                if(gameObject.tag == "Enemy") EnemyAI.TotalEnemyAggro--;
+                
                 if(deadEvent) {
                     deadEvent.execute();
                     StartCoroutine(checkDeadEvent());
