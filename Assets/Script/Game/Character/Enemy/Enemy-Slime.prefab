@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 8928505142654239624}
   - component: {fileID: 4819525291694487118}
   m_Layer: 0
-  m_Name: Slime
+  m_Name: Enemy-Slime
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -185,7 +185,7 @@ Animator:
   m_GameObject: {fileID: 7418117861757411004}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: aee35c20015d68e43b48c0e477efe37e, type: 2}
+  m_Controller: {fileID: 9100000, guid: aaf34a6fd9dcba445b1d462f78d9e695, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
