@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 7482340479392237445}
   - component: {fileID: 8928505142654239624}
   - component: {fileID: 4819525291694487118}
+  - component: {fileID: -1798567848448767290}
   m_Layer: 0
   m_Name: Enemy-Slime
   m_TagString: Enemy
@@ -266,6 +267,21 @@ MonoBehaviour:
   speedAggroMultiplier: 9
   speedNoAggroMultiplier: 1
   player: {fileID: 0}
+--- !u!114 &-1798567848448767290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7418117861757411004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4394c0b9d69e5942964007cfd3dd714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowFire: {fileID: 2100000, guid: 2692d488f80122f49bebdde464233455, type: 2}
+  glowIce: {fileID: 2100000, guid: 61d44ebfcc645e24f98c1a48ed14a748, type: 2}
+  glowDirt: {fileID: 2100000, guid: 1348f11de4f36ea47856ce85d0aeaf2a, type: 2}
 --- !u!1 &9062916370739041688
 GameObject:
   m_ObjectHideFlags: 0

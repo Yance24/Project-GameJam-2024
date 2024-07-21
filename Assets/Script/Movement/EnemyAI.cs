@@ -44,7 +44,7 @@ public class EnemyAI : MonoBehaviour
             if(gameObject.CompareTag("Boss")){
                 GameObject bossHpUi = GameObjectUtils.FindInactiveObjectByName("Boss Hp Bar");
                 bossHpUi.SetActive(true);
-                bossHpUi.GetComponent<HpBar>().targetHp = GetComponent<HpStats>();
+                bossHpUi.GetComponent<HpBar>().setTargetHp(GetComponent<HpStats>());
             }
             // Debug.Log("Aggro!!");
         }else if(isAggro && Vector2.Distance(transform.position,player.position) >= loseAggroDistance){

@@ -22,6 +22,13 @@ public class HpStats : MonoBehaviour
 
     public Element elementWeakness;
 
+    public Action elementChanged;
+
+    public void changeElement(Element element){
+        elementWeakness = element;
+        elementChanged?.Invoke();
+    }
+
     void Start(){
         currentHp = maxHp;
     }

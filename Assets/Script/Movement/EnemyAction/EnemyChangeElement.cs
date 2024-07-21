@@ -11,19 +11,19 @@ public class EnemyChangeElement : EnemyAction
         stats = enemy.GetComponent<HpStats>();
         switch(stats.elementWeakness){
             case Element.fire:
-                stats.elementWeakness = Element.ice;
+                stats.changeElement(Element.ice);
             break;
 
             case Element.ice:
-                stats.elementWeakness = Element.earth;
+                stats.changeElement(Element.earth);
             break;
 
             case Element.earth:
-                stats.elementWeakness = Element.fire;
+                stats.changeElement(Element.fire);
             break;
 
             default:
-                stats.elementWeakness = Element.fire;
+                stats.changeElement(Element.fire);
             break;
         }
         finish();

@@ -11,20 +11,20 @@ public class HpBar : MonoBehaviour
 
     float originalSize;
 
-    void Start(){
+    void Awake(){
         originalSize = bar.sizeDelta.x;
     }
 
     public void setTargetHp(HpStats target){
         targetHp = target;
+        
         OnEnable();
         UpdateHpBar();
     }
 
     void OnEnable(){
-
         if(targetHp) targetHp.hpChanged += UpdateHpBar;
-        else Debug.Log("No target");
+        // Debug.Log(targetHp);
     }
 
     void OnDisable(){
@@ -32,6 +32,8 @@ public class HpBar : MonoBehaviour
     }
 
     void UpdateHpBar(){
+        // Debug.Log("Target HP "+ targetHp.CurrentHp + " / "+targetHp.maxHp);
+        // Debug.Log("size: "+originalSize);
         float hpPercentage = targetHp.CurrentHp / targetHp.maxHp;
         bar.sizeDelta = new Vector2(Mathf.Lerp(0,originalSize,hpPercentage),bar.sizeDelta.y);
     }
