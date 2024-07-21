@@ -139,7 +139,7 @@ MonoBehaviour:
   maxHp: 1
   deadEvent: {fileID: 0}
   removeOnDead: 1
-  elementWeakness: 0
+  elementWeakness: 1
 --- !u!58 &6479855630582529764
 CircleCollider2D:
   m_ObjectHideFlags: 0
