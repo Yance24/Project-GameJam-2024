@@ -41,6 +41,9 @@ public class EnemyAI : MonoBehaviour
             isAggro = true;
             currentAction = StartCoroutine(aggroedAction());
             TotalEnemyAggro++;
+            if(gameObject.CompareTag("Boss")){
+                //summon boss battle ui
+            }
             // Debug.Log("Aggro!!");
         }else if(isAggro && Vector2.Distance(transform.position,player.position) >= loseAggroDistance){
             if(currentAction != null) StopCoroutine(currentAction);
