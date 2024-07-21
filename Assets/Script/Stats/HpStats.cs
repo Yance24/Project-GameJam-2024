@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -14,6 +15,8 @@ public class HpStats : MonoBehaviour
     public float maxHp;
     public GameEvent deadEvent;
     public bool removeOnDead;
+
+    public Action hpChanged;
 
     private float currentHp;
 
@@ -32,6 +35,7 @@ public class HpStats : MonoBehaviour
         set{
             currentHp = value;
             // Debug.Log(value);
+            hpChanged?.Invoke();
             if(Mathf.Floor(currentHp) <= 0){
                 // Debug.Log("dead");
                 if(gameObject.tag == "Enemy") EnemyAI.TotalEnemyAggro--;

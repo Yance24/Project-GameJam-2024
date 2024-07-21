@@ -277,10 +277,10 @@ MonoBehaviour:
   - {fileID: 3821465073300663188}
   - {fileID: 972090624860757031}
   - {fileID: 6495688905747391141}
-  avgActionSpeed: 0
-  actionDev: 0
-  speedAggroMultiplier: 0
-  speedNoAggroMultiplier: 0
+  avgActionSpeed: 3
+  actionDev: 0.5
+  speedAggroMultiplier: 10
+  speedNoAggroMultiplier: 1
   player: {fileID: 0}
 --- !u!114 &-2277117352750430972
 MonoBehaviour:
