@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HpBar : MonoBehaviour
@@ -16,15 +17,17 @@ public class HpBar : MonoBehaviour
 
     public void setTargetHp(HpStats target){
         targetHp = target;
+        OnEnable();
         UpdateHpBar();
     }
 
     void OnEnable(){
-        targetHp.hpChanged += UpdateHpBar;
+
+        if(targetHp) targetHp.hpChanged += UpdateHpBar;
     }
 
     void OnDisable(){
-        targetHp.hpChanged -= UpdateHpBar;
+        if(targetHp) targetHp.hpChanged -= UpdateHpBar;
     }
 
     void UpdateHpBar(){
