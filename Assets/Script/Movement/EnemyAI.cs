@@ -29,7 +29,7 @@ public class EnemyAI : MonoBehaviour
 
     private Coroutine currentAction;
 
-    bool isAggro = false;
+    public bool isAggro = false;
 
     void Start(){
         player = GameObject.FindWithTag("Player").transform;
@@ -52,7 +52,7 @@ public class EnemyAI : MonoBehaviour
             if(currentAction != null) StopCoroutine(currentAction);
             isAggro = false;
             currentAction = StartCoroutine(nonAggroedAction());
-            // TotalEnemyAggro--;
+            TotalEnemyAggro--;
             // Debug.Log("Lose Aggro!!");
         }
 
