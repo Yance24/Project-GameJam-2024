@@ -16,7 +16,7 @@ public class EnemyMoveToPlayer : EnemyAction
     {
         base.setup(enemy);
         enemyMovement = enemy.GetComponent<EnemyMovement>();
-        player = GameObject.Find("Player").transform;
+        player = GameObject.FindWithTag("Player").transform;
     }
 
     public override void execute()
