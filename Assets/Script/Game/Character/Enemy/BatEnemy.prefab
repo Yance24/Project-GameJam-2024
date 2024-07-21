@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 8928505142654239624}
   - component: {fileID: 4819525291694487118}
   m_Layer: 0
-  m_Name: EnemyDummy
+  m_Name: BatEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

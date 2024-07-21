@@ -49,6 +49,15 @@ public class ProjectileModifier : MonoBehaviour
                 Destroy(afterI,afterImpactLifeSpan);
             }
             if(destroyOnImpact) Destroy(gameObject);
+        }else if(collider.CompareTag("Wall")){
+            if(afterImpact){
+                GameObject afterI = Instantiate(afterImpact);
+                afterI.transform.position = transform.position;
+                Destroy(afterI,afterImpactLifeSpan);
+            }
+            if(destroyOnImpact) Destroy(gameObject);
         }
+
+        
     }
 }

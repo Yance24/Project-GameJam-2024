@@ -1,18 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class GameOver : MonoBehaviour
+public class GameOver : GameEvent
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void execute()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        base.execute();
+        SceneManager.LoadScene("GameOverScene");
+        finish();
     }
 }
