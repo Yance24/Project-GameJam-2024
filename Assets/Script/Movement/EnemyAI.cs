@@ -51,7 +51,7 @@ public class EnemyAI : MonoBehaviour
             if(currentAction != null) StopCoroutine(currentAction);
             isAggro = false;
             currentAction = StartCoroutine(nonAggroedAction());
-            TotalEnemyAggro--;
+            // TotalEnemyAggro--;
             // Debug.Log("Lose Aggro!!");
         }
 
