@@ -17,6 +17,8 @@ public class SpellCastingManager : MonoBehaviour
     public AudioClip spawnSigilSFX;
     public AudioClip despawnSigilSFX;
     public Image lineImage;
+    public Texture2D aimCursorTexture;
+    public Texture2D defaultTexture;
 
     private AudioSource audioSource;
 
@@ -119,6 +121,8 @@ public class SpellCastingManager : MonoBehaviour
                 }
                 if(isCorrectSigils){
                     castedSpell = storedSpell.spells;
+                    Vector2 cursorHotspot = new Vector2(aimCursorTexture.width / 2, aimCursorTexture.height / 2);
+                    Cursor.SetCursor(aimCursorTexture,cursorHotspot,CursorMode.Auto);
                     isCooked = true;
                     sigilLocked = true;
                 }
@@ -151,6 +155,7 @@ public class SpellCastingManager : MonoBehaviour
         if(isCooked){
             castSpell();
             isCooked = false;
+            Cursor.SetCursor(defaultTexture,Vector2.zero,CursorMode.Auto);
         }
         
     }

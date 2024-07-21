@@ -4163,6 +4163,8 @@ MonoBehaviour:
   spawnSigilSFX: {fileID: 8300000, guid: 8dc21759cc716034a9ec866d94c5550e, type: 3}
   despawnSigilSFX: {fileID: 8300000, guid: e7f1da818effdd849acd2459c1393461, type: 3}
   lineImage: {fileID: 7648425072121321362, guid: ac0bf88a35dd11547b20634fdfa23451, type: 3}
+  aimCursorTexture: {fileID: 2800000, guid: 9312a139acf6ccd4986800f1d9bf465d, type: 3}
+  defaultTexture: {fileID: 2800000, guid: 6c0adc2b8575fe441bc2ab2962227ec0, type: 3}
   isCooked: 0
   sigilLocked: 1
 --- !u!114 &1428759359
@@ -6073,7 +6075,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2074919003
 RectTransform:
   m_ObjectHideFlags: 0

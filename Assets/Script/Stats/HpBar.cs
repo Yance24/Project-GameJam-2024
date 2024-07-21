@@ -24,6 +24,7 @@ public class HpBar : MonoBehaviour
     void OnEnable(){
 
         if(targetHp) targetHp.hpChanged += UpdateHpBar;
+        else Debug.Log("No target");
     }
 
     void OnDisable(){
