@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1831803932452517941}
   - component: {fileID: 527997998361914643}
   - component: {fileID: 1708495781481334634}
+  - component: {fileID: 5455774442741410546}
   m_Layer: 0
   m_Name: DirtBall
   m_TagString: Untagged
@@ -146,7 +147,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.05, y: 0}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.16854647
 --- !u!114 &1708495781481334634
@@ -168,4 +169,25 @@ MonoBehaviour:
   maxLifeSpan: 5
   destroyOnImpact: 1
   afterImpact: {fileID: 116417351180035870, guid: 7dc95cd9e2e6c484e9978b96e9a2f7a8, type: 3}
-  afterImpactLifeSpan: 0.8
+  afterImpactLifeSpan: 0.5
+--- !u!95 &5455774442741410546
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8240647685523696061}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 36ab6e24fdd7f044aac4fe36a2ac0d46, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
