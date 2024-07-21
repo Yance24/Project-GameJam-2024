@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 951bd1baabaa46a47aa5d02fc5c93bcc
+guid: 04923b3ced43a4a48b06bfbd0dc8014e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -149,13 +149,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IceSpike_0
+      name: DirtSpikeProjectile_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 70
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,20 +163,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9125affd9b74234aabb0baed9af2890
-      internalID: -1651124728
+      spriteID: a5961fb89ff55bf4492ecd51a4cfdfc8
+      internalID: -21377803
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IceSpike_1
+      name: DirtSpikeProjectile_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 70
         y: 0
-        width: 32
-        height: 32
+        width: 70
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,20 +184,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed7bfcd44e2eb6548866e78459606d58
-      internalID: -354456417
+      spriteID: 6d9ecaa75d2e303469ee492e478ebfea
+      internalID: 528336433
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IceSpike_2
+      name: DirtSpikeProjectile_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 140
         y: 0
-        width: 32
-        height: 32
+        width: 70
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,20 +205,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d5b34ff2ec29804d9eb322d3d005367
-      internalID: -1362950686
+      spriteID: 67fb7f687ce3e474ba2a5264a203beec
+      internalID: 634756188
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IceSpike_3
+      name: DirtSpikeProjectile_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 210
         y: 0
-        width: 32
-        height: 32
+        width: 70
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -226,8 +226,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5773b36cb6e4f7a48a7dde3bcb9bb4f9
-      internalID: -704872178
+      spriteID: 44d593970ac2d90499a145d3d18a6036
+      internalID: 517868580
       vertices: []
       indices: 
       edges: []
@@ -243,10 +243,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      IceSpike_0: -1651124728
-      IceSpike_1: -354456417
-      IceSpike_2: -1362950686
-      IceSpike_3: -704872178
+      DirtSpikeProjectile_0: -21377803
+      DirtSpikeProjectile_1: 528336433
+      DirtSpikeProjectile_2: 634756188
+      DirtSpikeProjectile_3: 517868580
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
