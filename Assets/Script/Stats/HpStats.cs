@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 
 [SerializeField]
 public enum Element{
-    fire, ice, wind, dark
+    fire, ice, earth, dark
 }
 
 public class HpStats : MonoBehaviour
