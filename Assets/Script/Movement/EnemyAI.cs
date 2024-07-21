@@ -19,6 +19,7 @@ public class EnemyAI : MonoBehaviour
     public static int TotalEnemyAggro{
         set{
             totalEnemyAggro = value;
+            if(totalEnemyAggro < 0) totalEnemyAggro = 1;
             totalEnemyAggroOnChange?.Invoke();
         }
         get{return totalEnemyAggro;}
