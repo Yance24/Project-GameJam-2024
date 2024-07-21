@@ -121,6 +121,13 @@ public class SpellCastingManager : MonoBehaviour
                 }
                 if(isCorrectSigils){
                     castedSpell = storedSpell.spells;
+
+                    if(storedSpell.sigilEffect)
+                    for(int i = 0; i < connectedSigilsID.Count; i++){
+                        connectedSigilsID[i].setMaterial(storedSpell.sigilEffect);
+                    }
+
+
                     Vector2 cursorHotspot = new Vector2(aimCursorTexture.width / 2, aimCursorTexture.height / 2);
                     Cursor.SetCursor(aimCursorTexture,cursorHotspot,CursorMode.Auto);
                     isCooked = true;

@@ -7,6 +7,7 @@ using UnityEngine;
 public class SpellRecipe{
     public GameObject spells;
     public List<SigilHandler> connectingSigilsID;
+    public Material sigilEffect;
 }
 
 public class SpellDatabase : MonoBehaviour

@@ -38,6 +38,10 @@ public class SigilHandler : MonoBehaviour, IPointerEnterHandler
         }
     }
 
+    public void setMaterial(Material material){
+        image.material = material;
+    }
+
     void readyHitbox(){
         isReady = true;
     }
