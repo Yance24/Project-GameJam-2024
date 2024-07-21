@@ -258,7 +258,7 @@ MonoBehaviour:
   - {fileID: 3865136380709837943}
   avgActionSpeed: 3
   actionDev: 0.5
-  speedAggroMultiplier: 0.8
+  speedAggroMultiplier: 1.2
   speedNoAggroMultiplier: 1
   player: {fileID: 0}
 --- !u!1 &9062916370739041688

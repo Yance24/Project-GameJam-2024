@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,16 @@ public class EnemyAI : MonoBehaviour
     public float actionDev;
     public float speedAggroMultiplier;
     public float speedNoAggroMultiplier;
+
+    public static Action totalEnemyAggroOnChange;
+    private static int totalEnemyAggro;
+    public static int TotalEnemyAggro{
+        set{
+            totalEnemyAggro = value;
+            totalEnemyAggroOnChange?.Invoke();
+        }
+        get{return totalEnemyAggro;}
+    }
 
     public Transform player;
 
@@ -29,18 +40,20 @@ public class EnemyAI : MonoBehaviour
             if(currentAction != null) StopCoroutine(currentAction);
             isAggro = true;
             currentAction = StartCoroutine(aggroedAction());
+            TotalEnemyAggro++;
             // Debug.Log("Aggro!!");
         }else if(isAggro && Vector2.Distance(transform.position,player.position) >= loseAggroDistance){
             if(currentAction != null) StopCoroutine(currentAction);
             isAggro = false;
             currentAction = StartCoroutine(nonAggroedAction());
+            TotalEnemyAggro--;
             // Debug.Log("Lose Aggro!!");
         }
 
     }
 
     float countActionSpeed(float multiplier){
-        return Random.Range(avgActionSpeed - actionDev, avgActionSpeed + actionDev + 1) / multiplier;
+        return UnityEngine.Random.Range(avgActionSpeed - actionDev, avgActionSpeed + actionDev + 1) / multiplier;
     }
 
     void FixedUpdate(){
