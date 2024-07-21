@@ -31,9 +31,9 @@ public class HpStats : MonoBehaviour
         get{return currentHp;}
         set{
             currentHp = value;
-            Debug.Log(value);
+            // Debug.Log(value);
             if(Mathf.Floor(currentHp) <= 0){
-                Debug.Log("dead");
+                // Debug.Log("dead");
                 if(deadEvent) {
                     deadEvent.execute();
                     StartCoroutine(checkDeadEvent());

@@ -25,7 +25,6 @@ public class MoveUIToTarget : BaseObjectMovement
             // Smoothly move the sourceUI towards the targetPosition
             sourceUI.anchoredPosition = Vector2.Lerp(sourceUI.anchoredPosition, targetPosition, speed * Time.deltaTime);
             
-            // Optionally, you can stop the movement when it gets very close to the target position
             if (Vector2.Distance(sourceUI.anchoredPosition, targetPosition) < 0.1f)
             {
                 sourceUI.anchoredPosition = targetPosition;

@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class TestMousePosition : MonoBehaviour
 {
-    RectTransform rectTransform;
-    public RectTransform referencePoint;
+    EnemyMovement enemyMovement;
     // Start is called before the first frame update
     void Start()
     {
-        rectTransform = GetComponent<RectTransform>();
+        enemyMovement = GetComponent<EnemyMovement>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        rectTransform.localPosition = MouseUtil.mousePositionToRect(referencePoint);
+        if(Input.GetMouseButton(1)){
+            enemyMovement.setTarget(MouseUtil.mousePositionToWorld());
+        }
     }
 }

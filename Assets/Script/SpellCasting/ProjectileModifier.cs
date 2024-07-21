@@ -38,9 +38,9 @@ public class ProjectileModifier : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider){
         if((collider.CompareTag("Player") && isHarm) || (collider.CompareTag("Enemy") && !isHarm)){
             HpStats hpStats = collider.GetComponent<HpStats>();
-            Debug.Log("check Damage");
+            // Debug.Log("check Damage");
             if(hpStats.elementWeakness == element){
-                Debug.Log("Take Damage");
+                // Debug.Log("Take Damage");
                 hpStats.CurrentHp -= damage;
             }
             if(afterImpact){
