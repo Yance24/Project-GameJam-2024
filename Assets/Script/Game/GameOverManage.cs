@@ -10,6 +10,6 @@ public class GameOverManage : MonoBehaviour
     }
 
     public void exit(){
-        Application.Quit();
+        SceneManager.LoadScene("TitleScreen");
     }
 }
