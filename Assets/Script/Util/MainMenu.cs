@@ -5,9 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public AudioSource hoverSoundSource;
-    public AudioSource clickSoundSource;
-
     public void PlayGame()
     {
         SceneManager.LoadScene("Scene-Main-Hub");
