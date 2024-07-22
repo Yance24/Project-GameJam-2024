@@ -277,7 +277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glowFire: {fileID: 2100000, guid: 2692d488f80122f49bebdde464233455, type: 2}
   glowIce: {fileID: 2100000, guid: 61d44ebfcc645e24f98c1a48ed14a748, type: 2}
-  glowDirt: {fileID: 2100000, guid: 1348f11de4f36ea47856ce85d0aeaf2a, type: 2}
+  glowDirt: {fileID: 2100000, guid: 23fb93fc17da0f24a8e08163b80c3c38, type: 2}
 --- !u!1 &9062916370739041688
 GameObject:
   m_ObjectHideFlags: 0
